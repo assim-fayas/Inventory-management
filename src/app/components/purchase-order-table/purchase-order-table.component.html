@@ -1,0 +1,92 @@
+<div class="p-4">
+    <!-- Top section with filter, search, and button -->
+    <!-- Top section with filter, search, and button -->
+    <div class="flex flex-col md:flex-row justify-end md:justify-end  items-center mb-4 space-y-4 md:space-y-0 md:space-x-4">
+        <!-- Filter dropdown -->
+        <div class="w-full md:w-auto">
+          <label for="filter" class="block text-sm font-medium text-gray-700">searchBy</label>
+          <select id="filter" [(ngModel)]="selectedFilter" (change)="applyFilter()" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+           
+            <option  value="all">all</option>
+            <option value="date">DATE</option>
+            <option value="vendor">PURCHASE ORDERS</option>
+            <option value="vendor">REFERENCES </option>
+            <option value="vendor">VENDOR</option>
+            <option value="vendor">AMOUNT</option>
+            <option value="vendor">DUE DATE</option>
+            <option value="vendor">	WAREHOUSE</option>
+            <option value="vendor">FREIGHT FORWARDERS</option>
+          </select>
+        </div>
+    
+        <!-- Search field -->
+        <div class="w-full md:w-auto">
+          <label for="search" class="block text-sm font-medium text-gray-700">Search</label>
+          <input id="search" type="text" (keyup)="applyFilter()" placeholder="search By" #input class="mt-1 block w-full pl-3 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        </div>
+    
+        <!-- Button for creating new fields -->
+        <button (click)="createNewField()" class="w-full md:w-auto inline-flex justify-center py-2 px-4  border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Create New Field
+        </button>
+      </div>
+  
+    <!-- Table section -->
+    <div class="mat-elevation-z8 overflow-x-auto p-4">
+      <table mat-table [dataSource]="dataSource" class="min-w-full divide-y divide-gray-200">
+        <!-- Table columns definition -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> No. </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.position}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="DATE">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Date </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.DATE}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="PURCHASE_ORDERS">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Purchase Orders </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.PURCHASE_ORDERS}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="REFERENCES">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> References </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.REFERENCES}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="VENDOR">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Vendor </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.VENDOR}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="AMOUNT">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Amount </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.AMOUNT}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="DUE_DATE">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Due Date </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.DUE_DATE}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="WAREHOUSE">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Warehouse </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.WAREHOUSE}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="FRIEGHT_FORWARDERS">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Freight Forwarders </th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap"> {{element.FRIEGHT_FORWARDERS}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="bg-gray-50"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="bg-white"></tr>
+      </table>
+    </div>
+  
+    <!-- Paginator -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  

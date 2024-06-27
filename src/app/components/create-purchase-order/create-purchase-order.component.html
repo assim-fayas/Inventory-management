@@ -1,0 +1,123 @@
+<div class="p-4">
+    <!-- Form section ---->
+      <div class="w-full md:w-auto flex flex-col md:flex-row md:justify-end space-y-4 md:space-y-0 md:space-x-4 mb-4">
+        <button (click)="createNewField()" class="w-full md:w-auto inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Create New Field
+        </button>
+        <button type="reset" class="w-full md:w-auto inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+          Reset
+        </button>
+      </div>
+    <form class="flex flex-col md:flex-row flex-wrap justify-end md:justify-start items-center mb-4 space-y-4 md:space-y-0 md:space-x-4">
+     
+  
+      <!-- Order filter dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="order-filter" class="block text-sm font-medium text-gray-700">Order#</label>
+        <select id="order-filter" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled value="all">Order#</option>
+        </select>
+      </div>
+  
+      <!-- Date field -->
+      <div class="w-full md:w-auto">
+        <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+        <input id="date" type="date" class="mt-1 block w-full pl-3 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+  
+      <!-- Reference input field -->
+      <div class="w-full md:w-auto">
+        <label for="reference" class="block text-sm font-medium text-gray-700">Reference</label>
+        <input id="reference" type="text" class="mt-1 block w-full pl-3 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+  
+      <!-- Vendor dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="vendor" class="block text-sm font-medium text-gray-700">Vendor</label>
+        <select id="vendor" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Vendor</option>
+          <!-- Add vendor options here -->
+        </select>
+      </div>
+  
+      <!-- Vendor contact dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="vendor-contact" class="block text-sm font-medium text-gray-700">Vendor Contact</label>
+        <select id="vendor-contact" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Vendor Contact</option>
+          <!-- Add vendor contact options here -->
+        </select>
+      </div>
+  
+      <!-- Ship to dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="ship-to" class="block text-sm font-medium text-gray-700">Ship To</label>
+        <select id="ship-to" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Ship To</option>
+          <!-- Add ship to options here -->
+        </select>
+      </div>
+  
+      <!-- Bill to dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="bill-to" class="block text-sm font-medium text-gray-700">Bill To</label>
+        <select id="bill-to" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Bill To</option>
+          <!-- Add bill to options here -->
+        </select>
+      </div>
+  
+      <!-- Warehouse dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="warehouse" class="block text-sm font-medium text-gray-700">Warehouse</label>
+        <select id="warehouse" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Warehouse</option>
+          <!-- Add warehouse options here -->
+        </select>
+      </div>
+  
+      <!-- Freight forwarders dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="freight-forwarders" class="block text-sm font-medium text-gray-700">Freight Forwarders</label>
+        <select id="freight-forwarders" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Freight Forwarders</option>
+          <!-- Add freight forwarders options here -->
+        </select>
+      </div>
+  
+      <!-- Status dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+        <select id="status" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Status</option>
+          <!-- Add status options here -->
+        </select>
+      </div>
+  
+      <!-- Payment terms dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="payment-terms" class="block text-sm font-medium text-gray-700">Payment Terms</label>
+        <select id="payment-terms" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Payment Terms</option>
+          <!-- Add payment terms options here -->
+        </select>
+      </div>
+  
+      <!-- Due date dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="due-date" class="block text-sm font-medium text-gray-700">Due Date</label>
+        <input id="due-date" type="date" class="mt-1 block w-full pl-3 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+  
+      <!-- Price book dropdown -->
+      <div class="w-full md:w-auto">
+        <label for="price-book" class="block text-sm font-medium text-gray-700">Price Book</label>
+        <select id="price-book" class="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option disabled selected>Select Price Book</option>
+          <!-- Add price book options here -->
+        </select>
+      </div>
+    </form>
+  
+  </div>
+  
